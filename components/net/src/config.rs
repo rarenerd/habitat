@@ -18,7 +18,6 @@ use std::net::{IpAddr, Ipv4Addr, SocketAddr, SocketAddrV4, SocketAddrV6};
 use num_cpus;
 
 pub const DEFAULT_ROUTER_LISTEN_PORT: u16 = 5562;
-pub const DEFAULT_ROUTER_HEARTBEAT_PORT: u16 = 5563;
 
 /// URL to GitHub API endpoint
 pub const DEFAULT_GITHUB_URL: &'static str = "https://api.github.com";
@@ -84,8 +83,6 @@ pub struct RouterAddr {
     pub host: IpAddr,
     /// Listening port of command socket
     pub port: u16,
-    /// Listening port of heartbeat socket
-    pub heartbeat: u16,
 }
 
 impl Default for RouterAddr {
@@ -93,7 +90,6 @@ impl Default for RouterAddr {
         RouterAddr {
             host: IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)),
             port: DEFAULT_ROUTER_LISTEN_PORT,
-            heartbeat: DEFAULT_ROUTER_HEARTBEAT_PORT,
         }
     }
 }
